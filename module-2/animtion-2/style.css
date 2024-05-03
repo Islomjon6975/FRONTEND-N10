@@ -1,0 +1,224 @@
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+.container {
+   position: relative;
+   width: 100%;
+   height: 100vh;
+
+   overflow: hidden;
+
+   background-image: url("./images/road.webp");
+   background-repeat: no-repeat;
+   background-size: contain;
+
+   animation-name: dayAnimation;
+   animation-duration: 60s;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+}
+
+.car {
+   position: absolute;
+
+   width: 250px;
+}
+
+.car1 {
+   z-index: 6;
+   top: 385px;
+   left: -250px;
+   animation-name: carAnimationLeftToRight;
+   animation-duration: 15s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+}
+
+.car2 {
+   z-index: 5;
+   top: 365px;
+   left: -250px;
+   animation-name: carAnimationLeftToRight;
+   animation-duration: 13s;
+   animation-delay: 2s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+}
+
+.car3 {
+   z-index: 4;
+   top: 420px;
+   left: -250px;
+   animation-name: carAnimationLeftToRight;
+   animation-duration: 10s;
+   animation-delay: 3s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+}
+
+.car4 {
+   width: 180px;
+   z-index: 3;
+   top: 380px;
+   right: -250px;
+   animation-name: carAnimationRightToLeft;
+   animation-duration: 6s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+}
+
+.car5 {
+   width: 180px;
+   z-index: 2;
+   top: 375px;
+   right: -250px;
+   animation-name: carAnimationRightToLeft;
+   animation-duration: 7s;
+   animation-delay: 3s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+}
+
+.car6 {
+   width: 185px;
+   z-index: 1;
+   top: 370px;
+   right: -250px;
+   animation-name: carAnimationRightToLeft;
+   animation-duration: 8s;
+   animation-delay: 4s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+}
+
+.sun {
+   position: absolute;
+   top: 40px;
+   left: -90px;
+
+   width: 90px;
+
+   animation-name: sunAnimation;
+   animation-duration: 60s;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+}
+
+@keyframes carAnimationLeftToRight {
+   from {
+      left: -250px;
+   }
+
+   to {
+      left: 100%;
+   }
+}
+
+@keyframes carAnimationRightToLeft {
+   from {
+      right: -250px;
+   }
+
+   to {
+      right: 100%;
+   }
+}
+
+@keyframes sunAnimation {
+   0% {
+      top: 40px;
+      left: -90px;
+      filter: brightness(40%);
+      transform: rotate(0deg);
+   }
+   10% {
+      top: 35px;
+      left: 10%;
+      filter: brightness(50%);
+   }
+   20% {
+      top: 30px;
+      left: 20%;
+      filter: brightness(60%);
+   }
+   30% {
+      top: 20px;
+      left: 30%;
+      filter: brightness(70%);
+   }
+   40% {
+      top: 10px;
+      left: 40%;
+      filter: brightness(90%);
+   }
+   50% {
+      top: 5px;
+      left: 50%;
+      filter: brightness(100%);
+   }
+   60% {
+      top: 10px;
+      left: 60%;
+      filter: brightness(90%);
+   }
+   70% {
+      top: 20px;
+      left: 70%;
+      filter: brightness(80%);
+   }
+   80% {
+      top: 30px;
+      left: 80%;
+      filter: brightness(70%);
+   }
+   90% {
+      top: 35px;
+      left: 90%;
+      filter: brightness(60%);
+   }
+   100% {
+      top: 40px;
+      left: 100%;
+      filter: brightness(50%);
+      transform: rotate(360deg);
+   }
+}
+
+@keyframes dayAnimation {
+   0% {
+      filter: brightness(75%);
+   }
+   10% {
+      filter: brightness(80%);
+   }
+   20% {
+      filter: brightness(85%);
+   }
+   30% {
+      filter: brightness(90%);
+   }
+   40% {
+      filter: brightness(95%);
+   }
+   50% {
+      filter: brightness(100%);
+   }
+   60% {
+      filter: brightness(95%);
+   }
+   70% {
+      filter: brightness(90%);
+   }
+   80% {
+      filter: brightness(85%);
+   }
+   90% {
+      filter: brightness(80%);
+   }
+   100% {
+      filter: brightness(75%);
+   }
+}

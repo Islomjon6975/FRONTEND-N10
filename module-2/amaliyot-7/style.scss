@@ -1,0 +1,52 @@
+// Define common card styles
+%card-base {
+   padding: 20px;
+   border-radius: 8px;
+   margin: 10px;
+}
+
+// Define card variations
+%card-primary {
+   @extend %card-base;
+   background-color: #3498db;
+   border: 1px solid #2980b9;
+   box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+
+%card-success {
+   @extend %card-base;
+   background-color: #28a745;
+   border: 1px solid #218838;
+   box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+}
+
+%card-warning {
+   @extend %card-base;
+   background-color: #ffc107;
+   border: 1px solid #d39e00;
+   box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
+%card-danger {
+   @extend %card-base;
+   background-color: #dc3545;
+   border: 1px solid #c82333;
+   box-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+}
+
+// Apply extends to create cards
+.card-primary {
+   @extend %card-primary;
+}
+
+.card-success {
+   @extend %card-success;
+}
+
+.card-warning {
+   @extend %card-warning;
+}
+
+.card-danger {
+   @extend %card-danger;
+}

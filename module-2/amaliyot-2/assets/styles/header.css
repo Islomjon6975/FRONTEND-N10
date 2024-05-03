@@ -1,0 +1,53 @@
+header {
+   width: 100%;
+   background-color: rgb(48, 48, 53);
+}
+
+header nav {
+   height: 80px;
+}
+
+header nav {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+header nav .logo {
+   font-size: 27px;
+   font-weight: 700;
+   line-height: 24px;
+   color: #fff;
+}
+
+header nav .nav-list {
+   display: flex;
+   align-items: center;
+   gap: 30px;
+}
+
+header nav .nav-list .nav-list__item a {
+   font-size: 18px;
+   font-weight: 500;
+   color: #fff;
+}
+
+header nav button {
+   padding: 8px 20px;
+   border: none;
+   background-color: crimson;
+   color: #fff;
+   font-size: 18px;
+   font-weight: 500;
+   border-radius: 3px;
+   transition: all 0.3s ease-in-out;
+}
+
+header nav button:hover {
+   transform: scale(0.98);
+}
+
+header nav button:active {
+   background-color: #fff;
+   color: crimson;
+}

@@ -1,0 +1,42 @@
+/* general style */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* header */
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: #213243;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__list {
+  display: flex;
+  gap: 30px;
+
+  list-style-type: none;
+}
+
+.nav__list--item {
+}
+
+.nav__link {
+  /* box-style */
+  padding: 8px 10px;
+  border-radius: 5px;
+
+  /* text-style */
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav__link--active {
+  background-color: #1070f9;
+}

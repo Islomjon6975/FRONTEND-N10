@@ -1,0 +1,26 @@
+@mixin custom-title-style($font-size, $font-weight, $color) {
+   font-size: $font-size;
+   font-weight: $font-weight;
+   color: $color;
+}
+
+.custom-title {
+   @include custom-title-style(
+      $font-size: 27px,
+      $font-weight: 700,
+      $color: red
+   );
+}
+
+.custom-title2 {
+   @include custom-title-style(24px, 600, blue);
+}
+
+.custom-title3 {
+   @include custom-title-style(20px, 500, green);
+   margin-top: 60px;
+}
+
+.custom-title4 {
+   @include custom-title-style(18px, 400, crimson);
+}

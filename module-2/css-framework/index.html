@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>CSS Framework</title>
+      <link rel="stylesheet" href="./css/style.min.css" />
+   </head>
+   <body>
+      <div class="container">
+         <h1 style="margin: 20px 0px">Buttons</h1>
+
+         <button type="button" class="btn btn-primary">Primary</button>
+         <button type="button" class="btn btn-secondary">Secondary</button>
+         <button type="button" class="btn btn-success">Success</button>
+         <button type="button" class="btn btn-danger">Danger</button>
+         <button type="button" class="btn btn-warning">Warning</button>
+         <button type="button" class="btn btn-info">Info</button>
+         <button type="button" class="btn btn-light">Light</button>
+         <button type="button" class="btn btn-dark">Dark</button>
+
+         <button type="button" class="btn btn-link">Link</button>
+
+         <xmp
+            id="htmlCode"
+            style="background-color: #f8f9fa; margin: 20px 0; padding: 20px 0">
+     <button type="button" class="btn btn-primary">Primary</button>
+     <button type="button" class="btn btn-secondary">Secondary</button>
+     <button type="button" class="btn btn-success">Success</button>
+     <button type="button" class="btn btn-danger">Danger</button>
+     <button type="button" class="btn btn-warning">Warning</button>
+     <button type="button" class="btn btn-info">Info</button>
+     <button type="button" class="btn btn-light">Light</button>
+     <button type="button" class="btn btn-dark">Dark</button>
+
+     <button type="button" class="btn btn-link">Link</button>
+
+   </xmp>
+         <span onclick="copyHtmlCode()">Copy</span>
+
+         <h1 style="margin: 20px 0px" class="">Buttons</h1>
+      </div>
+
+      <script>
+         function copyHtmlCode() {
+            // Get the HTML content within the <code> tag
+            var htmlCode = document.getElementById("htmlCode").innerText;
+
+            // Copy the HTML code to the clipboard
+            navigator.clipboard
+               .writeText(htmlCode)
+               .then(() => {
+                  alert("HTML code copied to clipboard!");
+               })
+               .catch((err) => {
+                  console.error("Failed to copy HTML code: ", err);
+               });
+         }
+      </script>
+   </body>
+</html>

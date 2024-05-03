@@ -1,0 +1,20 @@
+{
+   "name": "amaliyot-13",
+   "version": "1.0.0",
+   "description": "Darsni amaliy yaxshi o'zlashtirish",
+   "main": "index.js",
+   "scripts": {
+      "build": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+   },
+   "keywords": [
+      "html",
+      "css",
+      "tailwindcss",
+      "js"
+   ],
+   "author": "John Smith",
+   "license": "ISC",
+   "devDependencies": {
+      "tailwindcss": "^3.4.3"
+   }
+}

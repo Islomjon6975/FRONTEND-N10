@@ -1,0 +1,16 @@
+#sidebar {
+   position: relative;
+   left: -400px;
+
+   transition: all 0.5s ease-in-out;
+
+   width: 400px;
+   height: calc(100vh - 80px);
+   background-color: #1f2b40;
+   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.active-sidebar {
+   left: 0px !important;
+}

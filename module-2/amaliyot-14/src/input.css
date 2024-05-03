@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+   .btn {
+      @apply py-2 px-4 rounded font-bold text-white;
+   }
+
+   .btn-primary {
+      @apply bg-blue-500 hover:bg-blue-700;
+   }
+
+   .btn-secondary {
+      @apply bg-gray-500 hover:bg-gray-700;
+   }
+
+   .btn-success {
+      @apply bg-green-500 hover:bg-green-700;
+   }
+
+   .card {
+      @apply bg-white shadow-md p-4 rounded-lg max-w-[300px];
+   }
+
+   .card:hover {
+      @apply bg-gray-500 scale-[0.98];
+   }
+
+   .card:hover img {
+      @apply scale-[1.2];
+   }
+
+   .card:hover h2 {
+      @apply text-red-700;
+   }
+
+   .card:hover p {
+      @apply text-red-700;
+   }
+}
+
+@layer utilities {
+   .rounded-sm {
+      border-radius: 10px;
+   }
+
+   .text-primary {
+      color: #4f6acf;
+   }
+
+   .text-secondary {
+      color: pink;
+      font-size: 72px;
+   }
+}

@@ -1,0 +1,24 @@
+.custom-title {
+  font-size: 27px;
+  font-weight: 700;
+  color: red;
+}
+
+.custom-title2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: blue;
+}
+
+.custom-title3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: green;
+  margin-top: 60px;
+}
+
+.custom-title4 {
+  font-size: 18px;
+  font-weight: 400;
+  color: crimson;
+}/*# sourceMappingURL=style.css.map */

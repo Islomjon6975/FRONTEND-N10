@@ -1,0 +1,335 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* :root {} -> css o'zgaruvchilar yaratish */
+:root {
+  --primary-white: #fff;
+  --primary-black: #212529;
+  --primary-blue: #0d6efd;
+  --primary-gray: #55595c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1250px;
+  width: 100%;
+  padding: 0px 20px;
+  margin: 0 auto;
+}
+
+/* --------------------- HEADER START --------------------- */
+header {
+  width: 100%;
+  background-color: var(--primary-black);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+header nav {
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header nav .logo__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+header nav .logo__wrapper .logo__image {
+  width: 24px;
+}
+
+header nav .logo__wrapper .logo__text {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: sans-serif;
+  /* color: #fff; */
+  color: var(--primary-white);
+}
+
+header nav .menu__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 2px;
+  border-radius: 5px;
+
+  border: 1px solid var(--primary-white);
+
+  cursor: pointer;
+}
+
+header nav .menu__wrapper .menu {
+  width: 24px;
+}
+/* --------------------- HEADER END --------------------- */
+
+/* --------------------- HERO START --------------------- */
+
+#hero {
+  width: 100%;
+  background-color: #212529;
+}
+
+#hero .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  height: 400px;
+}
+
+#hero .wrapper .hero__title {
+  font-size: 40px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: var(--primary-white);
+}
+
+#hero .wrapper .hero__description {
+  max-width: 500px;
+
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 25px;
+  text-align: center;
+  color: var(--primary-white);
+}
+
+#hero .wrapper .hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#hero .wrapper .hero__actions .btn {
+  padding: 8px 10px;
+  border-radius: 5px;
+
+  font-size: 16px;
+  font-weight: 400;
+  font-family: sans-serif;
+  color: var(--primary-white);
+}
+
+#hero .wrapper .hero__actions .primary-btn {
+  border: 2px solid var(--primary-blue);
+  background-color: var(--primary-blue);
+}
+
+#hero .wrapper .hero__actions .primary-btn:hover {
+  background-color: transparent;
+  border: 2px solid var(--primary-blue);
+
+  color: var(--primary-blue);
+}
+
+#hero .wrapper .hero__actions .secondary-btn {
+  border: 2px solid var(--primary-gray);
+  background-color: var(--primary-gray);
+}
+
+#hero .wrapper .hero__actions .secondary-btn:hover {
+  background-color: transparent;
+  border: 2px solid var(--primary-white);
+
+  color: var(--primary-white);
+}
+
+/* --------------------- HERO END --------------------- */
+
+/* --------------------- PRODUCTS START --------------------- */
+#products {
+  width: 100%;
+  min-height: 500px;
+  background-color: #2b3035;
+  padding: 30px 0px;
+}
+
+#products .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+#products .wrapper .card {
+  flex-grow: 1;
+  max-width: 32.5%;
+  min-width: 300px;
+  background-color: #212529;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+#products .wrapper .card .card__img--wrapper {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-gray);
+}
+
+#products .wrapper .card .card__img--wrapper .card__img-text {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: sans-serif;
+  color: var(--primary-white);
+}
+
+#products .wrapper .card .card__body {
+  padding: 15px;
+  height: 100px;
+}
+
+#products .wrapper .card .card__body .card__description {
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 400;
+  color: var(--primary-white);
+}
+
+#products .wrapper .card .card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px 10px 10px;
+}
+
+#products .wrapper .card .card__footer .card__footer--left {
+  display: flex;
+  align-items: center;
+}
+
+#products .wrapper .card .card__footer .card__footer--left .card__view-btn {
+  padding: 5px;
+  border: 1px solid var(--primary-gray);
+  background-color: transparent;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: var(--primary-gray);
+}
+
+#products
+  .wrapper
+  .card
+  .card__footer
+  .card__footer--left
+  .card__view-btn:hover {
+  background-color: rgba(152, 152, 152, 0.766);
+  border: 1px solid rgba(152, 152, 152, 0.766);
+  color: var(--primary-white);
+}
+
+#products .wrapper .card .card__footer .card__footer--left .card__edit-btn {
+  padding: 5px;
+  border: 1px solid #55595c;
+  border-left: none;
+  background-color: transparent;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #55595c;
+}
+
+#products
+  .wrapper
+  .card
+  .card__footer
+  .card__footer--left
+  .card__edit-btn:hover {
+  background-color: rgba(152, 152, 152, 0.766);
+  border: 1px solid rgba(152, 152, 152, 0.766);
+  color: var(--primary-white);
+}
+
+#products .wrapper .card .card__footer .card__minute {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: sans-serif;
+  color: #55595c;
+}
+/* --------------------- PRODUCTS END --------------------- */
+
+/* --------------------- FOOTER START --------------------- */
+footer {
+  width: 100%;
+  background-color: var(--primary-black);
+  padding: 40px 0px;
+}
+
+footer .wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+footer .wrapper .footer__left p:nth-child(1) {
+  margin-bottom: 30px;
+}
+
+footer .wrapper .footer__left p {
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--primary-white);
+}
+
+footer .wrapper .footer__left p a,
+footer .wrapper .footer__back-top {
+  text-decoration: underline;
+  color: var(--primary-blue);
+}
+
+footer .wrapper .footer__back-top {
+  min-width: 90px;
+}
+/* --------------------- FOOTER END --------------------- */
+
+/*
+ Flex Container
+
+ display: flex, block, none, inline, inline-block, grid
+ align-items: flex-start, center, flex-end
+ align-content: flex-start, center, flex-end, space-around, space-between, space-evenly
+ justify-content: flex-start, center, flex-end, space-around, space-between, space-evenly
+ flex-direction: row, column, row-reverse, column-reverse
+ flex-wrap: no-wrap, wrap, wrap-reverse
+  gap;
+
+ Flex Items
+  flex-basis: initial width
+  flex-grow: 1; -> bosh joyni to'ldirib oladi
+  flex-shrink: -> siqiladi
+  align-self: -> 
+  align-content ->
+
+
+  (1250 - 30)/3 -> 407
+
+*/
