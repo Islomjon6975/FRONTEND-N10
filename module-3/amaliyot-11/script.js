@@ -44,7 +44,7 @@
 // numbers1.sum();
 // console.log(numbers1.count);
 
-[
+const cart = [
    {
       _id: 1,
       name: "Pen",
@@ -67,3 +67,10 @@
       color: "red",
    },
 ];
+
+const totalPrice = cart.reduce(
+   (sum, value) => sum + value.price * value.quantity,
+   0
+);
+
+console.log(totalPrice);
