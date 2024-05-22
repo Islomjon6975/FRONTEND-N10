@@ -1,0 +1,19 @@
+{
+   "name": "bookshelf",
+   "version": "1.0.0",
+   "description": "bookshelf is a store where people can buy books",
+   "main": "index.js",
+   "type": "module",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "keywords": [
+      "javascript"
+   ],
+   "author": "Jack Smith",
+   "license": "ISC",
+   "dependencies": {
+      "chalk": "^5.3.0",
+      "prompt-sync": "^4.2.0"
+   }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <style>
+         /* Add styles for the shaking animation */
+         @keyframes shake {
+            0% {
+               transform: translateX(0);
+            }
+            25% {
+               transform: translateX(-5px);
+            }
+            50% {
+               transform: translateX(5px);
+            }
+            75% {
+               transform: translateX(-5px);
+            }
+            100% {
+               transform: translateX(0);
+            }
+         }
+
+         .shake {
+            animation: shake 0.5s ease-in-out;
+            border: 1px solid crimson;
+         }
+      </style>
+   </head>
+   <body>
+      <h1>Todo</h1>
+      <time id="date">something</time> | <time id="time">Time: 8:09:27 AM</time
+      ><br />
+
+      <strong id="todo-count">3 Tasks</strong> |
+      <button id="clear-all">Clear All</button>
+
+      <ul id="todo-list"></ul>
+
+      <form id="todoForm">
+         <input type="text" placeholder="Todo" required id="todo" />
+         <button type="submit">add</button>
+      </form>
+      <script src="./script.js"></script>
+   </body>
+</html>

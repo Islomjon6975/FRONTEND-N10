@@ -1,65 +1,71 @@
 // #1
 
-let shop = JSON.parse(localStorage.getItem("shop"))
-   ? JSON.parse(localStorage.getItem("shop"))
-   : [
-        { _id: "1", name: "Pen", color: ["blue", "red", "black"], price: 2000 },
-        {
-           _id: "2",
-           name: "Pencil",
-           color: ["blue", "red", "black"],
-           price: 3000,
-        },
-        {
-           _id: "3",
-           name: "paper",
-           color: ["blue", "red", "black"],
-           price: 4000,
-        },
-        {
-           _id: "4",
-           name: "notebook",
-           color: ["blue", "red", "black"],
-           price: 5000,
-        },
-        {
-           _id: "5",
-           name: "book",
-           color: ["blue", "red", "black"],
-           price: 6000,
-        },
-     ];
-
-localStorage.setItem("shop", JSON.stringify(shop));
+let shop = JSON.parse(localStorage.getItem("shop")) || [
+   { _id: "1", name: "Pen", color: ["blue", "red", "black"], price: 2000 },
+   {
+      _id: "2",
+      name: "Pencil",
+      color: ["blue", "red", "black"],
+      price: 3000,
+   },
+   {
+      _id: "3",
+      name: "paper",
+      color: ["blue", "red", "black"],
+      price: 4000,
+   },
+   {
+      _id: "4",
+      name: "notebook",
+      color: ["blue", "red", "black"],
+      price: 5000,
+   },
+   {
+      _id: "5",
+      name: "book",
+      color: ["blue", "red", "black"],
+      price: 6000,
+   },
+];
 
 function setLocalStorage() {
    localStorage.setItem("shop", JSON.stringify(shop));
 }
 
+setLocalStorage();
+
 function displayProducts(db = shop) {
    console.log("Mahsulotlar ro'yhati");
-   db.forEach((item, index) => {
-      console.log(`${item._id}. ${item.name} - ${item.color} - $${item.price}`);
+   db.forEach(({ _id, name, color, price }, index) => {
+      console.log(`${_id}. ${name} - ${color} - $${price}`);
    });
 }
 
 function addProduct() {
+   const name = prompt('Name: ');
+   const color1 = prompt('Color1: ')
+   const color2 = prompt('Color2: ')
+   const price = +prompt('Price: ')
+
+   const color = [color1, color2]
+
    const newProduct = {
       _id: String(shop.length + 1),
-      name: "Copybook",
-      color: ["black"],
-      price: 10000,
+      name, // name: name
+      color, // color: color
+      price, // price: price
    };
 
+   // shop.push(newProduct)
    shop = [...shop, newProduct];
    setLocalStorage();
 }
 
 function updateProduct() {
-   const productID = 1;
+   const productID = prompt('ID: ');
 
    shop = shop.map((product) =>
-      product._id === productID
+      product._id == productID
          ? {
               ...product,
               price: 50000,
@@ -72,7 +78,7 @@ function updateProduct() {
 }
 
 function removeProduct() {
-   const productID = 2;
+   const productID = prompt('ID: ');
 
    shop = shop.filter((product) => product._id !== productID);
 
