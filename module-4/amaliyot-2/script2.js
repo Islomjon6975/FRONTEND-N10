@@ -1,9 +1,20 @@
-let TODOS = [];
+let TODOS = JSON.parse(localStorage.getItem("todo")) || [];
 
 const todoCount = document.querySelector("#todo-count");
 const todoForm = document.querySelector("#todoForm");
+const clearAllItem = document.querySelector("#clear-all");
 
 todoCount.textContent = TODOS.length + " tasks";
+
+function setToLocalStorage() {
+   localStorage.setItem("todo", JSON.stringify(TODOS));
+}
+
+function clearAll() {
+   localStorage.clear();
+   TODOS = [];
+   renderTasks();
+}
 
 function date() {
    const date = document.querySelector("#date");
@@ -46,15 +57,19 @@ function addTask(e) {
       completed: false,
       mark: false,
       time: time(),
+      edit: false,
    };
 
    TODOS = [...TODOS, newTask];
 
+   setToLocalStorage();
    renderTasks();
 }
 
 function removeTask(taskId) {
    TODOS = TODOS.filter((task) => task._id !== taskId);
+
+   setToLocalStorage();
    renderTasks();
 }
 
@@ -65,6 +80,7 @@ function doneTaskHandler(taskId) {
          : element
    );
 
+   setToLocalStorage();
    renderTasks();
 }
 
@@ -73,10 +89,46 @@ function markTaskHandler(taskId) {
       element._id === taskId ? { ...element, mark: !element.mark } : element
    );
 
+   setToLocalStorage();
+   renderTasks();
+}
+
+function editTaskHandler(taskId) {
+   TODOS = TODOS.map((element) =>
+      element._id === taskId ? { ...element, edit: true } : element
+   );
+
+   setToLocalStorage();
+   renderTasks();
+}
+
+function saveTaskHandler(taskId) {
+   const editedInput = document.querySelector("#edit-input");
+
+   if (!editedInput.value.length) {
+      editedInput.classList.toggle("shake");
+      // alert("Input should not be empty");
+
+      setTimeout(function () {
+         editedInput.classList.remove("shake");
+      }, 500);
+
+      return;
+   }
+
+   TODOS = TODOS.map((element) =>
+      element._id === taskId
+         ? { ...element, name: editedInput.value, edit: false }
+         : element
+   );
+
+   setToLocalStorage();
    renderTasks();
 }
 
 function renderTasks() {
+   todoCount.textContent = TODOS.length + " tasks";
+
    const todoList = document.querySelector("#todo-list");
    todoList.innerHTML = "";
 
@@ -88,6 +140,9 @@ function renderTasks() {
       const markTag = document.createElement("button");
       const unMarkTag = document.createElement("button");
       const trashTag = document.createElement("button");
+      const editTag = document.createElement("button");
+      const saveTag = document.createElement("button");
+      const inputEditTag = document.createElement("input");
 
       timeTag.textContent = time();
       doneBtnTag.textContent = "done";
@@ -95,8 +150,17 @@ function renderTasks() {
       markTag.textContent = "mark";
       unMarkTag.textContent = "unMark";
       trashTag.textContent = "trash";
+      editTag.textContent = "Edit";
+      saveTag.textContent = "Save";
 
-      liTag.textContent = `${element.name} - `;
+      if (element.edit) {
+         inputEditTag.type = "text";
+         inputEditTag.id = "edit-input";
+         inputEditTag.value = element.name;
+         liTag.appendChild(inputEditTag);
+      } else {
+         liTag.textContent = `${element.name} - `;
+      }
 
       if (element.completed) {
          liTag.style.color = "green";
@@ -113,6 +177,7 @@ function renderTasks() {
          : liTag.appendChild(doneBtnTag);
       element.mark ? liTag.appendChild(unMarkTag) : liTag.appendChild(markTag);
       liTag.appendChild(trashTag);
+      element.edit ? liTag.appendChild(saveTag) : liTag.appendChild(editTag);
 
       todoList.appendChild(liTag);
 
@@ -121,6 +186,8 @@ function renderTasks() {
       unDoneTag.addEventListener("click", () => doneTaskHandler(element._id));
       markTag.addEventListener("click", () => markTaskHandler(element._id));
       unMarkTag.addEventListener("click", () => markTaskHandler(element._id));
+      editTag.addEventListener("click", () => editTaskHandler(element._id));
+      saveTag.addEventListener("click", () => saveTaskHandler(element._id));
    });
 }
 
@@ -133,6 +200,9 @@ todoForm.addEventListener("submit", (e) => {
    todoForm.reset();
 });
 
+clearAllItem.addEventListener("click", clearAll);
+
 setInterval(time, 1000);
 time();
 date();
+setToLocalStorage();

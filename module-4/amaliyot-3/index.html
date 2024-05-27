@@ -4,6 +4,23 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Document</title>
+      <style>
+         .error {
+            position: relative;
+            animation: shake 0.1s linear;
+            animation-iteration-count: 3;
+            border: 2px solid crimson;
+         }
+
+         @keyframes shake {
+            0% {
+               left: -5px;
+            }
+            100% {
+               right: -5px;
+            }
+         }
+      </style>
    </head>
    <body>
       <h1>Todo</h1>
@@ -19,6 +36,6 @@
          <input type="text" placeholder="Todo" required id="todo" />
          <button type="submit">add</button>
       </form>
-      <script src="./script2.js"></script>
+      <script src="./script.js"></script>
    </body>
 </html>

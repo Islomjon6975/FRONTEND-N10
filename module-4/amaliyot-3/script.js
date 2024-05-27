@@ -1,9 +1,16 @@
-let TODOS = [];
+let TODOS = JSON.parse(localStorage.getItem("todos")) || [];
+
+localStorage.setItem("todos", JSON.stringify(TODOS));
 
 const todoCount = document.querySelector("#todo-count");
 const todoForm = document.querySelector("#todoForm");
+const clearAll = document.querySelector("#clear-all");
 
 todoCount.textContent = TODOS.length + " tasks";
+
+function setToLocalStorage() {
+   localStorage.setItem("todos", JSON.stringify(TODOS));
+}
 
 function date() {
    const date = document.querySelector("#date");
@@ -46,6 +53,7 @@ function addTask(e) {
       completed: false,
       mark: false,
       time: time(),
+      update: false,
    };
 
    TODOS = [...TODOS, newTask];
@@ -76,9 +84,48 @@ function markTaskHandler(taskId) {
    renderTasks();
 }
 
+function clearAllHandler() {
+   TODOS = [];
+
+   renderTasks();
+}
+
+function updateTaskHandler(taskId) {
+   TODOS = TODOS.map((element) =>
+      element._id === taskId ? { ...element, update: true } : element
+   );
+
+   renderTasks();
+}
+
+function saveTaskHandler(taskId) {
+   const inputValue = document.querySelector("#update-task");
+
+   if (!inputValue.value.length) {
+      inputValue.classList.add("error");
+      // alert("Fill the input field!");
+
+      setTimeout(() => {
+         inputValue.classList.remove("error");
+      }, 500);
+      return;
+   }
+
+   TODOS = TODOS.map((element) =>
+      element._id === taskId
+         ? { ...element, name: inputValue.value, update: false }
+         : element
+   );
+
+   renderTasks();
+}
+
 function renderTasks() {
+   setToLocalStorage();
+
    const todoList = document.querySelector("#todo-list");
    todoList.innerHTML = "";
+   todoCount.textContent = TODOS.length + " tasks";
 
    TODOS.forEach((element) => {
       const liTag = document.createElement("li");
@@ -88,6 +135,8 @@ function renderTasks() {
       const markTag = document.createElement("button");
       const unMarkTag = document.createElement("button");
       const trashTag = document.createElement("button");
+      const updateTag = document.createElement("button");
+      const saveTag = document.createElement("button");
 
       timeTag.textContent = time();
       doneBtnTag.textContent = "done";
@@ -95,8 +144,19 @@ function renderTasks() {
       markTag.textContent = "mark";
       unMarkTag.textContent = "unMark";
       trashTag.textContent = "trash";
+      updateTag.textContent = "update";
+      saveTag.textContent = "save";
 
-      liTag.textContent = `${element.name} - `;
+      if (element.update) {
+         const input = document.createElement("input");
+         input.type = "text";
+         input.value = element.name;
+         input.id = "update-task";
+         input.placeholder = "Update task";
+         liTag.appendChild(input);
+      } else {
+         liTag.textContent = `${element.name} - `;
+      }
 
       if (element.completed) {
          liTag.style.color = "green";
@@ -114,6 +174,12 @@ function renderTasks() {
       element.mark ? liTag.appendChild(unMarkTag) : liTag.appendChild(markTag);
       liTag.appendChild(trashTag);
 
+      if (element.update) {
+         liTag.appendChild(saveTag);
+      } else {
+         liTag.appendChild(updateTag);
+      }
+
       todoList.appendChild(liTag);
 
       trashTag.addEventListener("click", () => removeTask(element._id));
@@ -121,6 +187,8 @@ function renderTasks() {
       unDoneTag.addEventListener("click", () => doneTaskHandler(element._id));
       markTag.addEventListener("click", () => markTaskHandler(element._id));
       unMarkTag.addEventListener("click", () => markTaskHandler(element._id));
+      updateTag.addEventListener("click", () => updateTaskHandler(element._id));
+      saveTag.addEventListener("click", () => saveTaskHandler(element._id));
    });
 }
 
@@ -132,6 +200,8 @@ todoForm.addEventListener("submit", (e) => {
    addTask(e);
    todoForm.reset();
 });
+
+clearAll.addEventListener("click", clearAllHandler);
 
 setInterval(time, 1000);
 time();
